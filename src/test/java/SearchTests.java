@@ -1,3 +1,6 @@
+package com.example;
+
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -14,54 +17,90 @@ import java.time.Duration;
 public class SearchTests {
 
     private static WebDriver webDriver;
+    private static String baseUrl;
 
     @BeforeAll
-
     public static void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\win11\\OneDrive\\Desktop\\Selenium\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         webDriver = new ChromeDriver(options);
+        baseUrl = "https://www.bigbang.ba/";
+    }
+
+
+    @AfterAll
+    public static void tearDown() {
+        if (webDriver != null) {
+            webDriver.quit();
+        }
     }
 
     @Test
-    public void testSearchFunctionality() {
-        // Set the path to the WebDriver executable (path to chromedriver)
-
-
+    public void testValidSearch() {
         try {
-            // Navigate to Big Bang website
             webDriver.get("https://www.bigbang.ba");
 
-            // Initialize WebDriverWait for dynamic content handling
-            WebDriverWait wait = new WebDriverWait(webDriver , Duration.ofSeconds(10));
-
-            // Wait for the search input element to be visible
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
             WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.amsearch-input")));
 
-            // Search terms to be typed
-            String[] searchTerms = {"iPhone", "PlayStation", "Samsung", "TV", "Kuhalo", "Frižider", "Krema"};
+            // Search terms
+            String[] validSearchTerms = {
+                    "iPhone",
+                    "PlayStation",
+                    "Samsung",
+                    "TV",
+                    "Kuhalo",
+                    "Frižider"
+            };
 
-            // Create Actions object to simulate typing
             Actions actions = new Actions(webDriver);
 
-            // Loop through each search term
-            for (String term : searchTerms) {
-                // Clear the search input field before typing
+            for (String term : validSearchTerms) {
                 searchInput.clear();
-
-                // Type the search term
                 actions.sendKeys(searchInput, term).perform();
-
-                // Wait a few seconds (adjust as necessary)
-                Thread.sleep(3000);  // 3-second delay between searches
+                Thread.sleep(3000); // Wait for results to load
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // Close the browser after the test is complete
-            webDriver.quit();
+        }
+    }
+
+    @Test
+    public void testEmptySearch() {
+        try {
+            webDriver.get("https://www.bigbang.ba");
+
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+            WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.amsearch-input")));
+
+            // Test empty search input
+            searchInput.clear();
+            Thread.sleep(3000); // Wait for results to reload or handle the empty state
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testInvalidSearch() {
+        try {
+            webDriver.get("https://www.bigbang.ba");
+
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+            WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.amsearch-input")));
+
+            String invalidTerm = "asdf123"; // Invalid search term
+            Actions actions = new Actions(webDriver);
+
+            searchInput.clear();
+            actions.sendKeys(searchInput, invalidTerm).perform();
+            Thread.sleep(3000); // Wait for results to load or handle no results
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

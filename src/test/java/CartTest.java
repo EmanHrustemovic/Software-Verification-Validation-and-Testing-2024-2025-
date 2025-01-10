@@ -246,7 +246,7 @@ public class CartTest {
         continueToCheckoutButton.click();
         Thread.sleep(6000);
 
-        WebElement paymentMethod = webDriver.findElement(By.xpath("//*[@id=\"checkout-shipping-method-load\"]/table/tbody/tr[1]/td[1]/label[2]"));
+        WebElement paymentMethod = webDriver.findElement(By.cssSelector("#checkout-step-shipping > div.field.addresses > div > div > div.shipping-address-item.selected-item"));
         paymentMethod.click();
         Thread.sleep(2000);
 
