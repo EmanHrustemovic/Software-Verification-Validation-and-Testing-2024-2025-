@@ -55,9 +55,8 @@ public class DeliveryInfoTest {
         wayOfPayment.click();
         Thread.sleep(3000);
 
-        // Provjeriti trenutni URL
         String currentUrl = webDriver.getCurrentUrl();
-        String expectedUrl = "https://www.bigbang.ba/nacini-placanja"; // Pretpostavljen URL stranice
+        String expectedUrl = "https://www.bigbang.ba/nacini-placanja";
         assertEquals(expectedUrl, currentUrl, "The payment info page did not load!");
         System.out.println("You have access to all info regarding payment on this page.");
     }
@@ -73,9 +72,8 @@ public class DeliveryInfoTest {
         wayOfDelivery.click();
         Thread.sleep(3000);
 
-        // Provjeriti trenutni URL
         String currentUrl = webDriver.getCurrentUrl();
-        String expectedUrl = "https://www.bigbang.ba/nacini-dostave"; // Pretpostavljen URL stranice
+        String expectedUrl = "https://www.bigbang.ba/nacini-dostave";
         assertEquals(expectedUrl, currentUrl, "The delivery info page did not load!");
         System.out.println("You have access to all info regarding delivery on this page.");
     }
@@ -91,9 +89,8 @@ public class DeliveryInfoTest {
         wayOfUse.click();
         Thread.sleep(3000);
 
-        // Provjeriti trenutni URL
         String currentUrl = webDriver.getCurrentUrl();
-        String expectedUrl = "https://www.bigbang.ba/uvjeti-koristenja"; // Pretpostavljen URL stranice
+        String expectedUrl = "https://www.bigbang.ba/uvjeti-koristenja";
         assertEquals(expectedUrl, currentUrl, "The terms of use page did not load!");
         System.out.println("You have access to all info regarding terms of use on this page.");
     }
@@ -109,9 +106,8 @@ public class DeliveryInfoTest {
         privacy.click();
         Thread.sleep(3000);
 
-        // Provjeriti trenutni URL
         String currentUrl = webDriver.getCurrentUrl();
-        String expectedUrl = "https://www.bigbang.ba/privatnost-podataka"; // Pretpostavljen URL stranice
+        String expectedUrl = "https://www.bigbang.ba/privatnost-podataka";
         assertEquals(expectedUrl, currentUrl, "The data privacy page did not load!");
         System.out.println("You have access to all info regarding data privacy on this page.");
     }
@@ -127,9 +123,8 @@ public class DeliveryInfoTest {
         support.click();
         Thread.sleep(3000);
 
-        // Provjeriti trenutni URL
         String currentUrl = webDriver.getCurrentUrl();
-        String expectedUrl = "https://www.bigbang.ba/podrska"; // Pretpostavljen URL stranice
+        String expectedUrl = "https://www.bigbang.ba/podrska";
         assertEquals(expectedUrl, currentUrl, "The support page did not load!");
         System.out.println("You have access to all info regarding support on this page.");
     }

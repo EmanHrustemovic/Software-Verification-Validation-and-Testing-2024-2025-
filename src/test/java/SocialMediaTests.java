@@ -240,8 +240,6 @@ public class SocialMediaTests {
         }
     }
 
-    // https://www.linkedin.com/company/big-bang-slovenija/
-
     @Test
     @Order(5)
     public  void findLinkedINPage() throws InterruptedException{

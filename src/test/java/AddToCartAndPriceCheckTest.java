@@ -63,7 +63,7 @@ public class AddToCartAndPriceCheckTest {
         String actualPrice = priceElement.getText().trim();
         System.out.println("Price: " + actualPrice);
 
-        // Definišemo cijenu
+        // Define the price
         String expectedPrice = "1.529,80 KM";
         assertEquals(expectedPrice, actualPrice, "The price is not displayed correctly.");
     }

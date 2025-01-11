@@ -47,34 +47,6 @@ public class ProductSortingTest {
         Thread.sleep(6000);
     }
 
-
-    /*
-
-    @Test
-    @Order(2)
-
-    public <JavascriptExecutor> void sortingByPrice () throws InterruptedException{
-        webDriver.get("https://www.bigbang.ba/televizori/led-tv/tv-32-ili-manji.html");
-        webDriver.manage().window().maximize();
-        Thread.sleep(3000);
-
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        Actions  actions = new Actions(webDriver);
-
-        WebElement leftSlider = webDriver.findElement(By.xpath("//*[@id=\"am-shopby-filter-price_6776c8a740ee9\"]/div[1]/span[1]"));
-        WebElement rightSlider = webDriver.findElement(By.xpath("//*[@id=\"am-shopby-filter-price_6776c8a740ee9\"]/div[1]/span[2]"));
-
-        actions.clickAndHold(leftSlider).moveByOffset(70,0).release().perform();
-        Thread.sleep(8000);
-        actions.clickAndHold(rightSlider).moveByOffset(-50,0).release().perform();
-        Thread.sleep(8000);
-
-        WebElement price = webDriver.findElement(By.xpath("//*[@id=\"am-shopby-filter-price_6776c8a740ee9\"]/div[2]"));
-
-        String message = "We adjusted our price in range  : ";
-        System.out.println(  message + price);
-    }*/
-
     @Test
     @Order(2)
 

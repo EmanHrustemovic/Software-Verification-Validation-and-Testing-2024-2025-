@@ -202,10 +202,6 @@ public class UserJourney1Test {
         assertTrue(successMessage.isDisplayed(), "Success message not displayed after saving changes.");
     }
 
-
-
-
-
     @Test
     @Order(7)
     public void testReturnButton() {
@@ -219,25 +215,6 @@ public class UserJourney1Test {
         returnButton.click();
     }
 
-
-    /*
-        @Test
-        @Order(8)
-        public void MojRacunNavigation() {
-            webDriver.get("https://www.bigbang.ba/customer/account/");
-
-            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
-
-
-            WebElement promijeniButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='button' and @class='action switch' and @data-action='customer-menu-toggle']")));
-            promijeniButton.click();
-
-            WebElement mojRacunLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='https://www.bigbang.ba/customer/account/' and @id='idtBiLNgo7']")));
-            mojRacunLink.click();
-
-            assertEquals("https://www.bigbang.ba/customer/account/", webDriver.getCurrentUrl(), "Navigation to Moj Račun page failed.");
-        }
-    */
     @AfterAll
     public void tearDown() {
         if (webDriver != null) {

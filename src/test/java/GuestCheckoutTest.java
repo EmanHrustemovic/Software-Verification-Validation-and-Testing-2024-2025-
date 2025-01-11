@@ -90,10 +90,8 @@ public class GuestCheckoutTest {
 
         String message = "Za neregistrovane korisnike postoji forma koju moraju popuniti prije kupovine";
 
-        // Assertion da provjeri da li forma postoji
         assertTrue(isFormPresent, "Forma nije pronađena!");
 
-        // Ako forma postoji, isprintaj poruku
         if (isFormPresent) {
             System.out.println(message);
         }
